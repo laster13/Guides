@@ -157,7 +157,7 @@ theme:
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      primary: indigo
+      primary: blue
       scheme: default
       toggle:
         icon: material/weather-sunny 
