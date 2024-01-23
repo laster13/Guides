@@ -62,6 +62,29 @@ plugins:
   - markdownextradata:
       data: docs/json
   - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: fr
+          default: true
+          name: Français
+          build: true
+        - locale: en
+          name: English
+          build: true
+          theme:
+            palette:
+              # Palette toggle for light mode
+              - media: "(prefers-color-scheme: light)"
+                primary: red
+                scheme: default
+              # Palette toggle for dark mode
+              - media: "(prefers-color-scheme: dark)"
+                primary: pink
+                scheme: slate
   - git-revision-date-localized:
       type: datetime
       locale: en
@@ -132,20 +155,20 @@ theme:
     - content.action.view
   language: en
   palette:
-    - media: "(prefers-color-scheme: dark)"
-      primary: indigo
-      accent: blue
-      scheme: slate
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
+    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       primary: indigo
-      accent: blue
       scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/weather-sunny 
         name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: blue grey
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
   font:
     text: "Noto Sans"
     code: "Encode Sans Expanded"

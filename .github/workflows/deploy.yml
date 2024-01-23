@@ -47,3 +47,6 @@ jobs:
         run: pip install -r docs/requirements.txt
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
+      - name: Traduction
+        run: pip install mkdocs-static-i18n
+
