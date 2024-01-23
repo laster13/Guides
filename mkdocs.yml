@@ -32,28 +32,45 @@ extra_css:
   - stylesheets/github-permalink-style.css
 
 markdown_extensions:
-  - attr_list
-  - admonition
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.extra
-  - pymdownx.highlight:
-      guess_lang: true
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.snippets
-  - pymdownx.tabbed
-  - pymdownx.tilde
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - toc:
-      permalink: ""
-#      toc_depth: 5
+  # extensions de la bibliothèque markdown standard
+  - meta                          # Métadonnées
+  - def_list                      # Listes de définition.
+  - attr_list                     # Sélecteurs CSS et attributs HTML personnalisés
+  - footnotes                     # Notes[^1] de bas de page.  [^1]: ma note.
+  - admonition                    # Pour permettre les admonitions de MkDocs # Boite d'avertissements  !!! info "ma remarque"
+  - toc:                          # Configuration de la table des matières générée automatiquement à partir des titres du niveau 2
+        permalink: "&lozf;"          # Ajoute un symbole lien hypertexte vers l'ancre du titre #le-titre 
+        toc_depth: 4                # Limite de la profondeur d'inclusion des titres dans la table des matières
+  - nl2br                         # Ajoute un retour à la ligne <br> après un saut de ligne simple # A activer pour admonition et si l'option "Sauts de ligne stricts" n'est pas activée dans les réglages de l'éditeur d'Obsidian
+  - mdx_breakless_lists           # Permet de commencer une liste sans faire de saut de ligne en amont en ajoutant systématiquement un saut de ligne
+  - sane_lists                    # Produit le même affichage de liste qu'Obsidian démarage au nombre indiqué au début d'une liste ordonné : https://python-markdown.github.io/extensions/sane_lists/ 
+  - smarty                        # The SmartyPants extension converts ASCII dashes, quotes and ellipses to their HTML entity equivalents https://python-markdown.github.io/extensions/smarty/
+  - tables                        # Pour les tableaux https://squidfunk.github.io/mkdocs-material/reference/data-tables/
+  # extensions de python-markdown https://facelessuser.github.io/pymdown-extensions/
+  - pymdownx.details              # plier/déplier les avertissements - admonition collapsable
+  - pymdownx.caret                # texte ^^souligné^^ ou en ^exposant^.
+  - pymdownx.mark                 # texte ==surligné==.
+  - pymdownx.tilde                # texte ~~barré~~ ou en ~indice~.
+  - pymdownx.critic               # Pour du marquage et commentaires de révision de texte
+  - pymdownx.magiclink            # Reconnait automatiquement un lien, une adresse à partir de son URL et bien plus : https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
+  - pymdownx.highlight            # Coloration syntaxique du code
+  - pymdownx.inlinehilite         # pour  `#!python  <python en ligne>`
+  - pymdownx.tasklist:            # Cases à cocher  - [ ]  et - [x]
+        custom_checkbox:    true    #   avec cases d'origine
+        # clickable_checkbox: true    #   et cliquables.
+  - pymdownx.superfences:    # Imbrication de blocs. # pour admonitions MkDocs
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.keys:                # Touches du clavier.  ++ctrl+d++
+        separator: "\uff0b"
+  - pymdownx.emoji:               # Émojis  :boom:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.arithmatex:          # Formules en LaTeX 
+        generic: true
+        smart_dollar: false 
 
 plugins:
   - include-markdown:
